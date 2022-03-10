@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="a"> nhập vào a <br>
+<input type="text" id="b"> nhập vào b <br>
+<input type="text" id="c">nhập vào c <br>
+<button onclick="Ca()">câu a</button>
+<button onclick="Cb()">câu b</button>
+<button onclick="Cc()">câu c</button>
+<button onclick="Cd()">câu d</button>
+<button onclick="Ce()">câu e</button>
+<p id="result1"></p>
+<p id="result2"></p>
+
+<script>
+    let a = document.getElementById('a');
+    let b = document.getElementById('b');
+    let c = document.getElementById('c');
+    let result1 = 0
+    let result2 = 0
+    let display1 = document.getElementById('result1')
+    let display2 = document.getElementById('result2')
+
+
+    function Ca() {
+        result1 = a.value * 4;
+        result2 = a.value * a.value;
+        display1.innerHTML = 'chu vi hình vuông cạnh a là: ' + result1;
+        display2.innerHTML = 'diện tích hình vuông cạnh a là: ' + result2
+    }
+
+    function Cb() {
+        result1 = a.value ** 2;
+        result2 = a.value ** b.value;
+        display1.innerHTML = 'a mũ 2 là: ' + result1;
+        display2.innerHTML = 'a mũ b là: ' + result2
+    }
+
+    function Cc() {
+        result1 = ((a.value + b.value) * (b.value - a.value) + 1) / 2
+        display1.innerHTML = 'tổng các số từ a đến b là: ' + result1
+    }
+
+    function Cd() {
+        result1 = a.value
+    }
+
+    function Ce() {
+        if (a.value + b.value > c.value || b.value + c.value > a.value || c.value + a.value > b.value) {
+            display1.innerHTML = 'đủ điều kiện là tam giác'
+            if (a.value === b.value !== c.value ||
+                a.value === c.value !== b.value ||
+                c.value === b.value !== a.value) {
+                display2.innerHTML = 'đây là tam giác cân'
+            }
+            if (a.value === b.value === c.value) {
+                display2.innerHTML = 'đây là tam giác đều'
+            }
+            if ((a.value + b.value) ** 2 === c.value ** 2 ||
+                (a.value + c.value) ** 2 === b.value ** 2 ||
+                (b.value + c.value) ** 2 === a.value ** 2) {
+                display2.innerHTML = 'đây là tam giác vuông'
+            }
+        } else
+        display1.innerHTML = 'không đủ điều kiện là tam giác'
+    }
+</script>
+</body>
+</html>
