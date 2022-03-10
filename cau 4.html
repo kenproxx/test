@@ -46,27 +46,39 @@
     }
 
     function Cd() {
-        result1 = a.value
+        if (a.value % 100 === 0) {
+            result1 = a.value / 100
+            display1.innerHTML = 'năm ' + a.value + ' thuộc thế kỉ: ' + result1
+
+        } else if (a.value % 100 !== 0) {
+            result1 = Math.floor(a.value / 100) + 1
+            display1.innerHTML = 'năm ' + a.value + ' thuộc thế kỉ: ' + result1
+        }
     }
 
     function Ce() {
-        if (a.value + b.value > c.value || b.value + c.value > a.value || c.value + a.value > b.value) {
-            display1.innerHTML = 'đủ điều kiện là tam giác'
-            if (a.value === b.value !== c.value ||
-                a.value === c.value !== b.value ||
-                c.value === b.value !== a.value) {
-                display2.innerHTML = 'đây là tam giác cân'
+        let A = parseInt(a.value);
+        let B = parseInt(b.value);
+        let C = parseInt(c.value);
+        if (A + B > C && A + C > B && B + C > A) {
+            if (A === B || A === C || B === C) {
+                if (A === B && A === C) {
+                    display1.innerHTML = "Đây là tam giác đều";
+                } else if (A * A + B * B === C * C || B * B + C * C === A * A || A * A + C * C === B * B) {
+                    display1.innerHTML = "Đây là tam giác vuông cân";
+                } else {
+                    display1.innerHTML = "Đây là tam giác cân";
+
+
+                }
+            } else if (A * A + B * B === C * C || B * B + C * C === A * A || A * A + C * C === B * B) {
+                display1.innerHTML = "Đây là tam giác vuông";
+            } else {
+                display1.innerHTML = "Đây là tam giác thường";
             }
-            if (a.value === b.value === c.value) {
-                display2.innerHTML = 'đây là tam giác đều'
-            }
-            if ((a.value + b.value) ** 2 === c.value ** 2 ||
-                (a.value + c.value) ** 2 === b.value ** 2 ||
-                (b.value + c.value) ** 2 === a.value ** 2) {
-                display2.innerHTML = 'đây là tam giác vuông'
-            }
-        } else
-        display1.innerHTML = 'không đủ điều kiện là tam giác'
+        } else {
+            display2.innerHTML = "Đây không phải là tam giác";
+        }
     }
 </script>
 </body>
